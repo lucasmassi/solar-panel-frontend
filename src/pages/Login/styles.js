@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
+export const Text = styled.text`
+  color: #6a6a80;
+  font-size: 16px;
+`;
+
 export const SubmitButton = styled.button.attrs(props => ({
   type: 'submit',
   disabled: props.loading ? true : false,

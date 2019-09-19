@@ -1,18 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import { Link } from 'react-router-dom';
 
 import { Text } from './styles';
 
-export default class Dashboard extends Component {
-  state = {
-    loading: 0,
-  };
-
-  render() {
-    return (
-      <>
-        <Text>Dashboard</Text>
-      </>
-    );
-  }
+export default function Dashboard() {
+  return <Text>Dashboard</Text>;
 }

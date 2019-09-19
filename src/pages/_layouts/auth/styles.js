@@ -29,6 +29,7 @@ export const Content = styled.div`
       justify-content: center;
       background: rgb(25, 24, 31);
       color: #fff;
+      margin-bottom: 10px;
 
       &:focus {
         border-color: #6756b8;
@@ -38,6 +39,12 @@ export const Content = styled.div`
       &::placeholder {
         color: #575561;
       }
+    }
+
+    span {
+      color: #ed311c;
+      align-self: flex-start;
+      margin: 0 0 10px;
     }
   }
 `;

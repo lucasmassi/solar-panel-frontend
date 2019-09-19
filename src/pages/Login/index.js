@@ -1,36 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
 
-import { SubmitButton, NewRegister } from './styles';
+import { signInRequest } from '../../store/modules/auth/actions';
 
-export default class Login extends Component {
-  state = {
-    loading: 0,
-  };
+import { SubmitButton, NewRegister, Text } from './styles';
 
-  handleSubmit = async data => {
-    console.tron.log(data);
-  };
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .email('Insert an valid e-mail')
+    .required('E-mail is required'),
+  password: Yup.string().required('Password is required'),
+});
 
-  render() {
-    const { loading } = this.state;
+export default function Login() {
+  const dispatch = useDispatch();
 
-    return (
-      <>
-        <Form onSubmit={this.handleSubmit}>
-          <Input type="text" name="email" placeholder="E-mail" id="" />
-          <Input type="password" name="password" placeholder="Password" id="" />
-          <SubmitButton type="submit" loading={loading}>
-            {loading ? <span>LOADING...</span> : <span>SIGN IN</span>}
-          </SubmitButton>
-
-          <NewRegister>
-            <span>You do not have register? </span>
-            <Link to="/register"> Create registry </Link>
-          </NewRegister>
-        </Form>
-      </>
-    );
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
   }
+
+  return (
+    <>
+      <Text>Sign in Orbita portal</Text>
+      <Form schema={schema} onSubmit={handleSubmit}>
+        <Input type="text" name="email" placeholder="E-mail" id="" />
+        <Input type="password" name="password" placeholder="Password" id="" />
+        <SubmitButton type="submit">SIGN IN</SubmitButton>
+
+        <NewRegister>
+          You do not have register?
+          <Link to="/register"> Create an account </Link>
+        </NewRegister>
+      </Form>
+    </>
+  );
 }
