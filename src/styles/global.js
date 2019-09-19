@@ -10,8 +10,16 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  *:focus {
+    outline: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
-    background: #21212b;
+    /* background: linear-gradient(-90deg, #0f0f17, #06060d); */
     -webkit-font-smoothing: antialiased;
     margin: 0px;
   }
@@ -20,10 +28,8 @@ export default createGlobalStyle`
     font: 14px Roboto, sans-serif;
   }
 
-  #root {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px 50px;
+  a {
+    text-decoration: none;
   }
 
   button {
