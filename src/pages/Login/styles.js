@@ -1,9 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
 export const Text = styled.text`
   color: #6a6a80;
   font-size: 16px;
+`;
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 `;
 
 export const SubmitButton = styled.button.attrs(props => ({
@@ -33,6 +42,10 @@ export const SubmitButton = styled.button.attrs(props => ({
     border-color: #21212b;
     background: ${darken(0.03, '#6756b8')};
     transition: 0.5s;
+  }
+
+  svg {
+    animation: ${rotate} 1s linear infinite;
   }
 `;
 

@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
@@ -19,7 +21,7 @@ export default createGlobalStyle`
   }
 
   body {
-    /* background: linear-gradient(-90deg, #0f0f17, #06060d); */
+    background: linear-gradient(-90deg, #0f0f17, #0f0f17);
     -webkit-font-smoothing: antialiased;
     margin: 0px;
   }

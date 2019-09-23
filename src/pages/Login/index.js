@@ -1,7 +1,8 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import { MdToys } from 'react-icons/md';
 import * as Yup from 'yup';
 
 import { signInRequest } from '../../store/modules/auth/actions';
@@ -17,6 +18,7 @@ const schema = Yup.object().shape({
 
 export default function Login() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
 
   function handleSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
@@ -28,7 +30,9 @@ export default function Login() {
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input type="text" name="email" placeholder="E-mail" id="" />
         <Input type="password" name="password" placeholder="Password" id="" />
-        <SubmitButton type="submit">SIGN IN</SubmitButton>
+        <SubmitButton type="submit">
+          {loading ? <MdToys size={28} /> : 'SIGN IN'}
+        </SubmitButton>
 
         <NewRegister>
           You do not have register?
