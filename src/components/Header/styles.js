@@ -23,7 +23,7 @@ export const Content = styled.div`
       align-items: center;
       font-weight: bold;
       font-size: 14px;
-      color: #ffa6ea;
+      color: #6756b8;
       transition: 0.4s;
 
       svg {
@@ -31,7 +31,7 @@ export const Content = styled.div`
       }
 
       &:hover {
-        color: ${darken(0.3, '#ffa6ea')};
+        color: ${darken(0.3, '#6756b8')};
         transition: 0.4s;
       }
     }

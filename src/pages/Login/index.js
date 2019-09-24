@@ -26,17 +26,17 @@ export default function Login() {
 
   return (
     <>
-      <Text>Sign in Orbita portal</Text>
+      <Text>Fazer login no Portal Orbita</Text>
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input type="text" name="email" placeholder="E-mail" id="" />
-        <Input type="password" name="password" placeholder="Password" id="" />
+        <Input type="password" name="password" placeholder="Senha" id="" />
         <SubmitButton type="submit">
-          {loading ? <MdToys size={28} /> : 'SIGN IN'}
+          {loading ? <MdToys size={28} /> : 'ENTRAR'}
         </SubmitButton>
 
         <NewRegister>
-          You do not have register?
-          <Link to="/register"> Create an account </Link>
+          Você ainda não tem registro?
+          <Link to="/register"> Criar uma conta </Link>
         </NewRegister>
       </Form>
     </>

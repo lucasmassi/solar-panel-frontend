@@ -31,26 +31,22 @@ export default function Register() {
 
   return (
     <>
-      <Text>Create your personal account</Text>
+      <Text>Crie sua conta pessoal</Text>
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="name" type="text" placeholder="Insert your full name" />
-        <Input name="email" type="text" placeholder="Insert your email" />
+        <Input name="name" type="text" placeholder="Insira seu nome completo" />
+        <Input name="email" type="text" placeholder="Insira seu e-mail" />
         <Input
           name="state"
           type="text"
-          placeholder="Insert your state(ex: CA, FL)"
+          placeholder="Insira seu estado(ex: CA, FL)"
         />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Insert your password"
-        />
+        <Input name="password" type="password" placeholder="Insira sua senha" />
 
-        <SubmitButton type="submit">SIGN UP</SubmitButton>
+        <SubmitButton type="submit">CADASTRAR</SubmitButton>
 
         <NewRegister>
-          You have account?
-            <Link to="/"> I have account </Link>
+          Você tem uma conta?
+          <Link to="/"> Fazer login </Link>
         </NewRegister>
       </Form>
     </>

@@ -4,7 +4,7 @@ import { darken } from 'polished';
 export const Container = styled.div`
   padding: 0 30px;
   margin-top: 20px;
-  background: linear-gradient(-90deg, #5c5c76, #5c5c76);
+  background: linear-gradient(-90deg, #0f0f17, #0f0f17);
 `;
 
 export const ContentChart = styled.div`

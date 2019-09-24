@@ -22,7 +22,11 @@ export default function Profile() {
 
   return (
     <Container>
-      <Text>Olá {profile.name}, veja as informações do seu perfil</Text>
+      <Text>
+        Olá <strong>{profile.name}</strong>,
+        <br />
+        Veja as informações do seu perfil!
+      </Text>
       <Form initialData={profile} onSubmit={handleSubmit}>
         <Input name="name" placeholder="Nome completo" />
         <Input name="email" placeholder="Seu e-mail" />
@@ -48,6 +52,6 @@ export default function Profile() {
       <LogoutButton type="button" onClick={handleSignOut}>
         Deslogar
       </LogoutButton>
-    </Container>
+    </Container >
   );
 }
