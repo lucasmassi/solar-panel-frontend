@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CountUp from 'react-countup';
 import {
   LineChart,
   Line,
@@ -8,7 +10,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from 'recharts';
 
 import {
@@ -19,9 +21,34 @@ import {
   ContentChart,
   ContentCard,
 } from './styles';
-// import api from '../../services/api';
+
+import api from '../../services/api';
 
 export default function Dashboard() {
+  const [totalInstallation, setTotalInstallation] = useState(0);
+  const [maxCost, setMaxCost] = useState(0);
+  const [zipCode, setZipCode] = useState(0);
+  const profile = useSelector(state => state.user.profile);
+  const { state } = profile;
+
+  useEffect(() => {
+    async function loadTotalInstallation() {
+      const response = await api.get(`panels/totalInstallation/${profile.id}`);
+
+      setTotalInstallation(response.data);
+    }
+
+    async function loadMaxCost() {
+      const response = await api.get(`panels/maxCost/${profile.id}`);
+
+      setMaxCost(response.data.maxCost);
+      setZipCode(response.data.zip_code);
+    }
+
+    loadMaxCost();
+    loadTotalInstallation();
+  }, []);
+
   const data = [
     {
       name: '5h', uv: 4000, pv: 2400, amt: 2400,
@@ -97,17 +124,26 @@ export default function Dashboard() {
       <ContentCard>
         <div>
           <h1>Instalações feitas</h1>
-          <strong>Total</strong>
-          <span>5800kw/h</span>
+          <strong>Total (kw/h)</strong>
+          <CountUp
+            start={0}
+            duration={1.75}
+            delay={0}
+            end={totalInstallation.toFixed(0)}
+          >
+            <span>{totalInstallation.toFixed(0)}</span>
+          </CountUp>
           <strong>Estado</strong>
-          <span>CA</span>
+          <span>{state}</span>
         </div>
         <div>
           <h1>Maior custo</h1>
           <strong>CEP</strong>
-          <span>9578555</span>
-          <strong>Custo</strong>
-          <span>5800kw/h</span>
+          <span>{zipCode}</span>
+          <strong>Custo (kw/h)</strong>
+          <CountUp start={0} duration={1.75} delay={0} end={maxCost.toFixed(2)}>
+            <span>{maxCost.toFixed(2)}</span>
+          </CountUp>
         </div>
         <div>
           <h1>3 maiores meses</h1>
@@ -119,6 +155,6 @@ export default function Dashboard() {
           <span>5700kw/h</span>
         </div>
       </ContentCard>
-    </Container>
+    </Container >
   );
 }

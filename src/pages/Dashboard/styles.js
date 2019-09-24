@@ -4,7 +4,7 @@ import { darken } from 'polished';
 export const Container = styled.div`
   padding: 0 30px;
   margin-top: 20px;
-  background: linear-gradient(-90deg, #0f0f17, #0f0f17);
+  background: linear-gradient(-90deg, #5c5c76, #5c5c76);
 `;
 
 export const ContentChart = styled.div`
@@ -28,9 +28,18 @@ export const ContentCard = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(-180deg, #6756b8, #fa435f);
     border-radius: 4px;
     padding: 20px;
+
+    &:nth-child(1) {
+      background: linear-gradient(-180deg, #ffa6ea, #feca7f);
+    }
+    &:nth-child(2) {
+      background: linear-gradient(-180deg, #79d9ff, #37f1a6);
+    }
+    &:nth-child(3) {
+      background: linear-gradient(-180deg, #7aa1fe, #e8a3fe);
+    }
 
     h1 {
       font-size: 18px;
@@ -105,13 +114,10 @@ export const Profile = styled.div`
 
   div {
     text-align: right;
-    margin-right: 10px;
 
     a {
       margin-top: 2px;
-      font-size: 12px;
       color: #999;
-      margin-right: 40px;
       font-size: 14px;
       font-weight: bold;
       transition: 0.4s;

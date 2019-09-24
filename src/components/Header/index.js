@@ -13,6 +13,7 @@ export default function Header() {
         <nav>
           <Link to="/dashboard">
             <MdDonutLarge size={30} />
+            DASHBOARD
           </Link>
         </nav>
 

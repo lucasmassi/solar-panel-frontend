@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 import { darken } from 'polished';
 
 export const Text = styled.div`
-  color: #6a6a80;
+  color: #fff;
   font-size: 16px;
 `;
 
@@ -17,19 +17,19 @@ export const Container = styled.div`
 
     input {
       flex: 1;
-      border: 3px solid rgb(25, 24, 31);
+      border: 3px solid #eee;
       padding: 15px 15px;
       border-radius: 5px;
       font-size: 16px;
       margin-top: 10px;
       width: 100%;
       justify-content: center;
-      background: rgb(25, 24, 31);
-      color: #fff;
+      background: #eee;
+      color: #575561;
       margin-top: 10px;
 
       &:focus {
-        border-color: #6756b8;
+        border-color: ${darken(0.02, '#575561')};
         transition: 0.4s;
       }
 
@@ -63,9 +63,8 @@ const rotate = keyframes`
 `;
 
 export const LogoutButton = styled.button`
-  background: #f03426;
+  background: #21212b;
   margin-top: 20px;
-  color: rgb(25, 24, 31);
   border: 0;
   padding: 16px;
   border-radius: 4px;
@@ -84,7 +83,7 @@ export const LogoutButton = styled.button`
 
   &:hover {
     border-color: #21212b;
-    background: ${darken(0.08, '#f03426')};
+    background: ${darken(0.08, '#21212b')};
     transition: 0.5s;
   }
 `;
@@ -93,9 +92,9 @@ export const SubmitButton = styled.button.attrs(props => ({
   type: 'submit',
   disabled: props.loading ? true : false,
 }))`
-  background: #6756b8;
+  background: #ffa6ea;
   margin-top: 20px;
-  color: rgb(25, 24, 31);
+  color: #21212b;
   border: 0;
   padding: 16px;
   border-radius: 4px;
@@ -103,7 +102,6 @@ export const SubmitButton = styled.button.attrs(props => ({
   justify-content: center;
   align-items: center;
   width: 100%;
-  color: #fff;
   transition: 0.5s;
   font-size: 16px;
 
@@ -113,8 +111,8 @@ export const SubmitButton = styled.button.attrs(props => ({
   }
 
   &:hover {
-    border-color: #21212b;
-    background: ${darken(0.03, '#6756b8')};
+    border-color: #ffa6ea;
+    background: ${darken(0.03, '#ffa6ea')};
     transition: 0.5s;
   }
 

@@ -23,18 +23,16 @@ export const Content = styled.div`
       align-items: center;
       font-weight: bold;
       font-size: 14px;
-      color: #6756b8;
+      color: #ffa6ea;
+      transition: 0.4s;
 
       svg {
         margin-right: 7px;
-        transition: 0.4s;
       }
 
       &:hover {
-        svg {
-          color: ${darken(0.2, '#6756b8')};
-          transition: 0.4s;
-        }
+        color: ${darken(0.3, '#ffa6ea')};
+        transition: 0.4s;
       }
     }
   }
@@ -54,13 +52,13 @@ export const Profile = styled.div`
 
   div {
     text-align: right;
-    margin-right: 10px;
+    margin-right: -40px;
 
     a {
       margin-top: 2px;
+      margin-right: 40px;
       font-size: 12px;
       color: #999;
-      margin-right: 40px;
       font-size: 14px;
       font-weight: bold;
       transition: 0.4s;
