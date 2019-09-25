@@ -1,8 +1,8 @@
 Orbita Frontend - Challenge
 
-## Available Scripts
+## Instalação e início do projeto
 
-In the project directory, you can run:
+### `npm install`
 
 ### `npm start`
 
