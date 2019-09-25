@@ -14,6 +14,14 @@ export const ContentChart = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 25px;
+
+  line {
+    stroke: #0f0f17;
+  }
+
+  span {
+    color: #999;
+  }
 `;
 
 export const ContentCard = styled.div`
@@ -48,6 +56,11 @@ export const ContentCard = styled.div`
     h1 {
       font-size: 18px;
       color: #fff;
+      margin-bottom: 15px;
+    }
+
+    h4 {
+      font-weight: normal;
       margin-bottom: 15px;
     }
 
