@@ -13,6 +13,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ![Login](https://github.com/lucasmassi/orbita-frontend/blob/master/src/assets/images/print/login.PNG)
 
+### Register
+
+![Login](https://github.com/lucasmassi/orbita-frontend/blob/master/src/assets/images/print/register.PNG)
+
 ### Dashboard
 
 ![Dashboard](https://github.com/lucasmassi/orbita-frontend/blob/master/src/assets/images/print/dashboard.PNG)
