@@ -45,7 +45,7 @@ export const Container = styled.div`
     hr {
       border: 0;
       height: 1px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       margin: 20px 0 10px;
     }
 

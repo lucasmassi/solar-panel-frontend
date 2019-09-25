@@ -27,7 +27,9 @@ import api from '../../services/api';
 export default function Dashboard() {
   const [totalInstallation, setTotalInstallation] = useState(0);
   const [maxCost, setMaxCost] = useState(0);
+  const [months, setMonths] = useState([{}, {}, {}]);
   const [zipCode, setZipCode] = useState(0);
+
   const profile = useSelector(state => state.user.profile);
   const { state } = profile;
 
@@ -45,6 +47,14 @@ export default function Dashboard() {
       setZipCode(response.data.zip_code);
     }
 
+    async function loadLargerMonths() {
+      const response = await api.get(`panels/largerMonths/${profile.id}`);
+      if (response.data) {
+        setMonths(response.data);
+      }
+    }
+
+    loadLargerMonths();
     loadMaxCost();
     loadTotalInstallation();
   }, []);
@@ -130,9 +140,7 @@ export default function Dashboard() {
             duration={1.75}
             delay={0}
             end={totalInstallation.toFixed(0)}
-          >
-            <span>{totalInstallation.toFixed(0)}</span>
-          </CountUp>
+          />
           <strong>Estado</strong>
           <span>{state}</span>
         </div>
@@ -141,20 +149,44 @@ export default function Dashboard() {
           <strong>CEP</strong>
           <span>{zipCode}</span>
           <strong>Custo (kw/h)</strong>
-          <CountUp start={0} duration={1.75} delay={0} end={maxCost.toFixed(2)}>
-            <span>{maxCost.toFixed(2)}</span>
-          </CountUp>
+          <CountUp
+            start={0}
+            duration={1.75}
+            delay={0}
+            end={maxCost.toFixed(2)}
+          />
         </div>
         <div>
-          <h1>3 maiores meses</h1>
-          <strong>Junho</strong>
-          <span>5800kw/h</span>
-          <strong>Julho</strong>
-          <span>5700kw/h</span>
-          <strong>Agosto</strong>
-          <span>5700kw/h</span>
+          <h1>Maiores dos últimos 3 meses</h1>
+          <strong>
+            {months[0].month_full ? months[0].month_full : 'Nenhum'} (kw/h)
+          </strong>
+          <CountUp
+            start={0}
+            duration={1.75}
+            delay={0}
+            end={months[0].system_size ? months[0].system_size : 0}
+          />
+          <strong>
+            {months[1].month_full ? months[1].month_full : 'Nenhum'} (kw/h)
+          </strong>
+          <CountUp
+            start={0}
+            duration={1.75}
+            delay={0}
+            end={months[1].system_size ? months[1].system_size : 0}
+          />
+          <strong>
+            {months[2].month_full ? months[2].month_full : 'Nenhum'} (kw/h)
+          </strong>
+          <CountUp
+            start={0}
+            duration={1.75}
+            delay={0}
+            end={months[2].system_size ? months[2].system_size : 0}
+          />
         </div>
       </ContentCard>
-    </Container >
+    </Container>
   );
 }

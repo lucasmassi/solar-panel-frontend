@@ -39,6 +39,10 @@ export const ContentCard = styled.div`
     }
     &:nth-child(3) {
       background: linear-gradient(-180deg, #7aa1fe, #e8a3fe);
+
+      strong {
+        text-transform: capitalize;
+      }
     }
 
     h1 {
@@ -56,7 +60,7 @@ export const ContentCard = styled.div`
 
     span {
       margin-bottom: 20px;
-      font-size: 30px;
+      font-size: 35px;
       color: #fff;
     }
   }
