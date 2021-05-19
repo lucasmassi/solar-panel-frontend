@@ -1,4 +1,4 @@
-Orbita Frontend - Challenge
+Solar Panel Frontend - Challenge
 
 ## Instalação e início do projeto
 
